@@ -1,1 +1,1 @@
-print('Test passed!')
+print('Python script executed.')

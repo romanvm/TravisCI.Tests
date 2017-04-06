@@ -1,1 +1,3 @@
-echo Test passed!
+#!/bin/bash
+
+echo "Shell script executed."

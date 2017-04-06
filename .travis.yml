@@ -1,20 +1,21 @@
 sudo: required
 services:
   - docker
-language: python
-python: "3.6"
 before_install:
   - docker pull ubuntu
-  - docker run -d --name ubuntu-test ubuntu tail -f /dev/null
-  #- docker start -a ubuntu-test
+  - docker run -d --name ubuntu-test -v $(pwd):/travis ubuntu tail -f /dev/null
   - docker ps -a
+
 install:
-  - docker exec ubuntu-test apt-get update
-  - docker exec ubuntu-test apt-get install -y git build-essential python3-dev python3-pip zlib1g-dev libbz2-dev libboost-all-dev libssl-dev
+  - docker exec ubuntu-test bash -c "apt-get update;
+    apt-get install -y software-properties-common python-software-properties;
+    add-apt-repository ppa:fkrull/deadsnakes;
+    apt-get update;
+    apt-get install -y python3.6 python3.6-dev"
+
 script:
-  - docker exec ubuntu-test /bin/bash -c "cd /home;
-    git clone https://github.com/romanvm/WsgiBoostServer.git;
-    cd WsgiBoostServer;
-    python3 setup.py build test"
+  - docker exec ubuntu-test bash -c "cd /travis;
+    bash test.sh;
+    python3.6 test.py"
 notifications:
     email: false
