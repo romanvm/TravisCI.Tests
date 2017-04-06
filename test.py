@@ -1,1 +1,1 @@
-print('Python script executed.')
+assert False, 'Oops! Script failed!'
