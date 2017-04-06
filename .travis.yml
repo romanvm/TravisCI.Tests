@@ -5,8 +5,8 @@ language: python
 python: "3.6"
 before_install:
   - docker pull ubuntu
-  - docker run --name ubuntu-test -p 8000:8000 -v TRAVIS_BUILD_DIR:/mnt/travis ubuntu
-  - docker start ubuntu-test
+  - docker run --name ubuntu-test -p 8000:8000 -v TRAVIS_BUILD_DIR:/mnt/travis ubuntu tail -f /dev/null
+  #- docker start -a ubuntu-test
   - docker ps -a
 install:
   - docker exec ubuntu-test apt-get update
