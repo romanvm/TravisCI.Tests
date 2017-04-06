@@ -16,3 +16,5 @@ install:
   - docker exec pip install requests
 script:
   - docker exec python test.py
+  - docker exec sh test.sh
+  
