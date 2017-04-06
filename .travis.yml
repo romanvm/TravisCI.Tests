@@ -5,13 +5,13 @@ language: python
 python: "3.6"
 before_install:
   - docker pull ubuntu
-  - docker run -d --name ubuntu-test -p 8000:8000 -v TRAVIS_BUILD_DIR:/mnt/travis ubuntu tail -f /dev/null
+  - docker run -d --name ubuntu-test -p 8000:8000 -v TRAVIS_BUILD_DIR:/travis ubuntu tail -f /dev/null
   #- docker start -a ubuntu-test
   - docker ps -a
 install:
   - docker exec ubuntu-test apt-get update
   - docker exec ubuntu-test apt-get install -y python3-dev python3-pip
-  - docker exec ubuntu-test "cd /mnt/travis"
+  - docker exec ubuntu-test "cd /travis"
   - docker exec ubuntu-test python3 -m venv venv
   - docker exec ubuntu-test "source ./venv/bin/activate"
   - docker exec pip install requests
