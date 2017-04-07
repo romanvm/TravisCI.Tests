@@ -17,16 +17,18 @@ before_install:
 
 install:
   - docker exec ubuntu-test bash -c "apt-get update;
+    apt-get install -y software-properties-common python-software-properties;
     apt-get install -y build-essentials cmake libboost-thread-dev libboost-date-time-dev;
     add-apt-repository ppa:ubuntu-toolchain-r/test;
     apt-get update;
-    apt-get install -y gcc-$CC_VER g++-$CC_VER"
+    apt-get install -y gcc-$CC_VER"
 
 script:
   - docker exec ubuntu-test bash -c "cd /travis;
     set CC=gcc-$CC_VER;
     set CXX=g++-$CC_VER;
     $CC --version;
+    $CXX --version;
     cmake --version;
     cmake . ;
     make;
