@@ -27,10 +27,7 @@ script:
   - docker exec ubuntu-test bash -c "cd /travis;
     set CC=gcc-$CC_VER;
     set CXX=g++-$CC_VER;
-    $CC --version;
-    $CXX --version;
-    cmake --version;
-    cmake . ;
+    cmake .;
     make;
     chmod +X test;
     test"
