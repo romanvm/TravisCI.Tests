@@ -21,7 +21,7 @@ install:
     apt-get install -y build-essential cmake libboost-thread-dev libboost-date-time-dev;
     add-apt-repository -y ppa:ubuntu-toolchain-r/test;
     apt-get update;
-    apt-get install -y gcc-$CC_VER"
+    apt-get install -y gcc-$CC_VER g++-$CC_VER"
 
 script:
   - docker exec -t ubuntu-test bash -c "cd /travis;
