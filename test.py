@@ -1,1 +1,3 @@
-assert False, 'Oops! Script failed!'
+import sys
+
+print(sys.version_info)
