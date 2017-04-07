@@ -30,7 +30,7 @@ script:
     cmake .;
     make;
     ls;
-    chmod +x test;
-    ./test"
+    chmod +x travis;
+    ./travis"
 notifications:
     email: false

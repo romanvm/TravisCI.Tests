@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.5)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-PROJECT(test)
+PROJECT(travis)
 
-ADD_EXECUTABLE( test test.cpp )
+ADD_EXECUTABLE( travis travis.cpp )
 
 FIND_PACKAGE( Boost 1.55 COMPONENTS thread date_time REQUIRED )
 INCLUDE_DIRECTORIES( ${Boost_INCLUDE_DIR} )
-TARGET_LINK_LIBRARIES( test ${Boost_LIBRARIES} )
+TARGET_LINK_LIBRARIES( travis ${Boost_LIBRARIES} )
