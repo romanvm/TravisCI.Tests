@@ -25,11 +25,8 @@ install:
 
 script:
   - docker exec -t ubuntu-test bash -c "cd /travis;
-    set CC=gcc-$CC_VER;
-    set CXX=g++-$CC_VER;
-    cmake .;
+    cmake -DCMAKE_C_COMPILER=gcc-$CC_VER -DCMAKE_CXX_COMPILER=g++-$CC_VER .;
     make;
-    ls;
     chmod +x travis;
     ./travis"
 notifications:
