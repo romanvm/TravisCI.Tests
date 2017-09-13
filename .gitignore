@@ -343,3 +343,4 @@ cmake/
 *.vcxproj
 *.vcxproj.filters
 venv.bat
+.idea/
