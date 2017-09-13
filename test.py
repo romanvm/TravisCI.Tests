@@ -16,6 +16,7 @@ def test_headless_chrome():
     browser = Chrome(chrome_options=options)
     browser.get('http://example.com/')
     h1 = browser.find_element_by_tag_name('h1')
+    print(h1.text)
     assert h1.text == 'Example Domain'
     print('Test passed OK')
 
