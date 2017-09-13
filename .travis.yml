@@ -3,11 +3,12 @@ python:
   - "3.6"
 addons:
   chrome: stable
-install:
+before_install:
   - wget https://chromedriver.storage.googleapis.com/2.32/chromedriver_linux64.zip
   - unzip chromedriver_linux64.zip
   - chmod +x chromedriver
   - export PATH=$TRAVIS_BUILD_DIR:$PATH
+install:
   - pip install selenium
 script:
   - python test.py
