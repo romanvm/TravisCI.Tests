@@ -12,7 +12,6 @@ def test_headless_chrome():
     options = ChromeOptions()
     options.add_argument('headless')
     options.add_argument('disable-gpu')
-    # options.add_argument('remote-debugging-port=9222')
     browser = Chrome(chrome_options=options)
     browser.get('http://example.com/')
     h1 = browser.find_element_by_tag_name('h1')
