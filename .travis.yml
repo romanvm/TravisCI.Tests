@@ -10,4 +10,4 @@ install:
   - export PATH=$TRAVIS_BUILD_DIR:$PATH
   - pip install selenium
 script:
-  - python tests.py
+  - python test.py
